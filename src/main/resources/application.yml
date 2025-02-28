@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: patient.service  # Name of the application
+  cloud:
+    config:
+      uri: http://localhost:8888  # URI of the Spring Cloud Config Server
+  config:
+    import: configserver:http://localhost:8888  # Explicitly import the configuration from Config Server
+  profiles:
+    active: test  # Active profile (this fetches the dev-specific configuration)
