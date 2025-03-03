@@ -1,10 +1,8 @@
 package com.app.patient.service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +15,9 @@ public class Physician {
     private int experienceInYears;
     private String specialisation;
     private long salary;
+
+    @OneToMany(mappedBy = "primaryPhysician", cascade = CascadeType.ALL)
+    private List<Patient> patientList;
 
     public Physician(){
     }

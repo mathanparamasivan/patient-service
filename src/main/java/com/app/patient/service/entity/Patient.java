@@ -26,20 +26,20 @@ public class Patient {
     private String email;
     private long mobile;
 
-    @OneToOne
-    @JoinColumn(name = "diagnoses_id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "diagnoses_id")
     private Diagnoses diagnoses;
 
-    @OneToOne
-    @JoinColumn(name = "referral_id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "referral_id")
     private ReferralInfo referralInfo;
 
-    @OneToOne
-    @JoinColumn(name = "insurance_id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "insurance_id")
     private InsuranceDetails insuranceDetails;
 
-    @ManyToOne
-    @JoinColumn(name = "physician_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "physician_id")
     private Physician primaryPhysician;
 
     public Patient() {

@@ -1,7 +1,9 @@
 package com.app.patient.service.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 import java.util.Objects;
 
@@ -15,6 +17,10 @@ public class InsuranceDetails {
     private long totalRequestedAmount;
     private long totalApprovedAmount;
     private long maxEligibleAmount;
+
+    @OneToOne(mappedBy = "insuranceDetails", cascade = CascadeType.ALL)
+    private Patient patient;
+
 
     public InsuranceDetails(){
     }

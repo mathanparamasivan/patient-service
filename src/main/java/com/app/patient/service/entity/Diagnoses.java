@@ -1,9 +1,6 @@
 package com.app.patient.service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -19,6 +16,9 @@ public class Diagnoses {
     private String secondaryDiagnosis;
 
     private String thirdDiagnosis;
+
+    @OneToOne(mappedBy = "diagnoses", cascade = CascadeType.ALL)
+    private Patient patient;
 
     public Diagnoses() {
     }

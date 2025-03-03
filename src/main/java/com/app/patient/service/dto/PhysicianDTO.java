@@ -3,7 +3,7 @@ package com.app.patient.service.dto;
 import java.util.Objects;
 
 public class PhysicianDTO {
-    private long id;
+    private Long id;
     private String name;
     private int age;
     private int experienceInYears;
@@ -13,11 +13,11 @@ public class PhysicianDTO {
     public PhysicianDTO(){
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

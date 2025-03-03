@@ -1,9 +1,6 @@
 package com.app.patient.service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -16,6 +13,9 @@ public class ReferralInfo {
     private String referrerName;
     private String email;
     private long mobileNumber;
+
+    @OneToOne(mappedBy = "referralInfo", cascade = CascadeType.ALL)
+    private Patient patient;
 
     public ReferralInfo() {
     }
