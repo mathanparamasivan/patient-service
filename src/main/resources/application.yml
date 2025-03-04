@@ -8,3 +8,8 @@ spring:
     import: configserver:http://localhost:8888  # Explicitly import the configuration from Config Server
   profiles:
     active: test  # Active profile (this fetches the dev-specific configuration)
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
