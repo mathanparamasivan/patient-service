@@ -9,6 +9,7 @@ import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class AwsSecretsPropertySource extends PropertySource<String> {
@@ -17,7 +18,9 @@ public class AwsSecretsPropertySource extends PropertySource<String> {
 
     public AwsSecretsPropertySource(String name, String secretName, String accessKey, String secretKey) {
         super(name);
-        this.secrets = fetchSecret(secretName, accessKey, secretKey);
+        this.secrets = new HashMap<>();//;fetchSecret(secretName, accessKey, secretKey);
+        secrets.put("username", "root");
+        secrets.put("password", "rootpassword");
     }
 
     private Map<String, String> fetchSecret(String secretName, String accessKey, String secretKey) {
