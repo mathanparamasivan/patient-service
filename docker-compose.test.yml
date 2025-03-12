@@ -19,7 +19,7 @@ services:
     container_name: config-server
     environment:
       SPRING_CLOUD_CONFIG_SERVER_GIT_URI: https://github.com/mathanparamasivan/central-config-repo # Replace with actual Git repo URL
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/userschema?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3308/userschema?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: rootpassword
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
