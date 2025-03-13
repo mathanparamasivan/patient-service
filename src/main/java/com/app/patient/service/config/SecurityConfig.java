@@ -20,7 +20,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/user").permitAll()  // Public endpoints
+                        .requestMatchers("/", "/user", "/actuator/health").permitAll()  // Public endpoints
                         .anyRequest().authenticated()  // Authenticate all other requests
                 )
                 .addFilterBefore(new GoogleAccessTokenValidatorFilter(), UsernamePasswordAuthenticationFilter.class) // Register filter
