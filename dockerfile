@@ -23,7 +23,7 @@ FROM openjdk:17-slim
 WORKDIR /app
 
 # Copy the jar file from the builder image
-COPY --from=builder /app/target/patientservice-0.0.1-SNAPSHOT.jar /app/patient-service.jar
+COPY --from=builder /app/target/patient.service-0.0.1-SNAPSHOT.jar /app/patient-service.jar
 
 # Expose the port your app will be running on
 EXPOSE 8084

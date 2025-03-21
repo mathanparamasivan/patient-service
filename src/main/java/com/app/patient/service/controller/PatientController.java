@@ -1,6 +1,7 @@
 package com.app.patient.service.controller;
 
 import com.app.patient.service.dto.PatientDTO;
+import com.app.patient.service.kafka.KafkaProducerService;
 import com.app.patient.service.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -19,6 +20,9 @@ public class PatientController {
 
     @Autowired
     PatientService patientService;
+
+    @Autowired
+    KafkaProducerService kafkaProducerService;
 
     public PatientController(WebClient.Builder webClientBuilder) {
         this.webClientBuilder = webClientBuilder;
@@ -42,6 +46,7 @@ public class PatientController {
 
     @GetMapping
     public ResponseEntity<List<PatientDTO>> getAllPatient(){
+        kafkaProducerService.sendMessage("Message from patient");
         List<PatientDTO> patientList = patientService.getAllPatients();
         return ResponseEntity.ok().body(patientList);
     }
